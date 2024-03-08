@@ -12,6 +12,8 @@ The dataset is from Kaggle, an online community of data scientists that hosts se
 
 ### Dataset URL: https://www.kaggle.com/andrewmvd/board-games
 
+---
+
 ## `Database Schema`
 
 ![Database Schema](/Database%20Schema/BoardGames%20Database%20Schema.PNG)
