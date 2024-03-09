@@ -2,9 +2,9 @@
 
 ## `Summary`
 
-This is REST API for Board Games.
+This is `REST API` implementing `CRUD` operations for `Board Games` to feed a Board Games Club Website.
 
-I used `ASP.NET Core 6`, `SQL Server` and `Entity Framework`.
+I used `ASP.NET Core`, `SQL Server` and `Entity Framework`.
 
 I used `Database-First Approach` to create database and models to represent the database schema in C#.
 
