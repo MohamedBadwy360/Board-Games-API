@@ -22,7 +22,7 @@ namespace BoardGamesAPI.Models
         [Required]
         public int MinAge { get; set; }
         [Required]
-        public int UserRatings { get; set; }
+        public int UsersRated { get; set; }
         [Required]
         [Precision(4, 2)]
         public decimal RatingAverage { get; set; }

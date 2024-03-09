@@ -67,3 +67,5 @@ F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\obj\Debug\net
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\obj\Debug\net6.0\BoardGamesAPI.pdb
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\obj\Debug\net6.0\BoardGamesAPI.genruntimeconfig.cache
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\obj\Debug\net6.0\ref\BoardGamesAPI.dll
+F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\CsvHelper.dll
+F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\System.Linq.Dynamic.Core.dll

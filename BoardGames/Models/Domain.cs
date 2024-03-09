@@ -14,7 +14,7 @@
         [Required]
         public DateTime CreatedDate { get; set; }
         [Required]
-        public DateTime LastModifiedTime { get; set; }
+        public DateTime LastModifiedDate { get; set; }
         public ICollection<BoardGames_Domains>? BoardGames_Domains { get; set; }
     }
 }
