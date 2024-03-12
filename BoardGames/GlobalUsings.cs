@@ -3,4 +3,8 @@ global using System.ComponentModel.DataAnnotations;
 global using System.ComponentModel.DataAnnotations.Schema;
 global using BoardGamesAPI.Models;
 global using BoardGamesAPI.DTOs;
-
+global using BoardGamesAPI.Attributes;
+global using System.ComponentModel;
+global using BoardGamesAPI.Constants;
+global using Serilog;
+global using Serilog.Sinks.MSSqlServer;
