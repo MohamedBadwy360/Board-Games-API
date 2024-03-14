@@ -56,6 +56,7 @@ namespace MyBGList.Controllers
             };
         }
 
+        [Authorize(Roles = RoleNames.Moderator)]
         [HttpPost(Name = "UpdateMechanic")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<Mechanic?>> Post(MechanicDTO model)
@@ -89,6 +90,7 @@ namespace MyBGList.Controllers
             };
         }
 
+        [Authorize(Roles = RoleNames.Administrator)]
         [HttpDelete(Name = "DeleteMechanic")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<Mechanic?>> Delete(int id)

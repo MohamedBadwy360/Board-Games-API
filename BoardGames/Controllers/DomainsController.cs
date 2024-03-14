@@ -80,6 +80,8 @@ namespace MyBGList.Controllers
             };
         }
 
+
+        [Authorize(Roles = RoleNames.Moderator)]
         [HttpPost(Name = "UpdateDomain")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<Domain?>> Post(DomainDTO model)
@@ -113,6 +115,7 @@ namespace MyBGList.Controllers
             };
         }
 
+        [Authorize(Roles = RoleNames.Administrator)]
         [HttpDelete(Name = "DeleteDomain")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<Domain?>> Delete(int id)

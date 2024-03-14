@@ -8,3 +8,4 @@ global using System.ComponentModel;
 global using BoardGamesAPI.Constants;
 global using Serilog;
 global using Serilog.Sinks.MSSqlServer;
+global using Microsoft.AspNetCore.Authorization;

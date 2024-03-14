@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Linq.Dynamic.Core;
 using BoardGamesAPI.Attributes;
 using System.Reflection.Metadata;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace BoardGames.Controllers
 {
@@ -15,14 +16,15 @@ namespace BoardGames.Controllers
     {
         private readonly ILogger<BoardGamesController> _logger;
         private readonly ApplicationDbContext _context;
-        public BoardGamesController(ILogger<BoardGamesController> logger, ApplicationDbContext context)
+        public BoardGamesController(ILogger<BoardGamesController> logger, 
+            ApplicationDbContext context)
         {
             _logger = logger;
             _context = context;
         }
 
         [HttpGet(Name = "GetBoardGames")]
-        [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 60)]
+        [ResponseCache(CacheProfileName = "Any-60")]
         public async Task<RestDTO<BoardGame[]>> Get([FromQuery] RequestDTO<BoardGameDTO> input)
         {
             _logger.LogInformation(CustomLogEvents.BoardGamesController_Get, "Get Method Starts.");
@@ -56,6 +58,7 @@ namespace BoardGames.Controllers
         }
 
 
+        [Authorize(Roles = RoleNames.Moderator)]
         [HttpPut(Name = "UpdateBoardGame")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<BoardGame?>> Put(BoardGameDTO model)
@@ -88,6 +91,7 @@ namespace BoardGames.Controllers
         }
 
 
+        [Authorize(Roles = RoleNames.Administrator)]
         [HttpDelete(Name = "DeleteBoardGame")]
         [ResponseCache(NoStore = true)]
         public async Task<RestDTO<BoardGame?>> Delete(int id)
