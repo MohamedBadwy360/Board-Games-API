@@ -33,8 +33,22 @@ namespace BoardGamesAPI.Controllers
             _singinManager = singinManager;
         }
 
+
+
+
+        /// <summary>
+        /// Register a new user
+        /// </summary>
+        /// <param name="input">A DTO containing the user data.</param>
+        /// <returns>A 201 - created status code in case of success.</returns>
+        /// <response code="201">User has been created</response>
+        /// <response code="400">Invalid data</response>
+        /// <response code="500">An error occurred</response>
         [HttpPost("Register")]
         [ResponseCache(CacheProfileName = "NoCache")]
+        [ProducesResponseType(typeof(string), 201)]
+        [ProducesResponseType(typeof(BadRequestObjectResult), 400)]
+        [ProducesResponseType(typeof(ProblemDetails), 500)]
         public async Task<IActionResult> Register(RegisterDTO input)
         {
             try
@@ -76,8 +90,23 @@ namespace BoardGamesAPI.Controllers
             }
         }
 
+
+
+
+
+        /// <summary>
+        /// Performs a user login 
+        /// </summary>
+        /// <param name="input">A DTO containing user's credentials.</param>
+        /// <returns>The Bearer Token (in JWT fromat).</returns>
+        /// <response code="200">User has been logged in</response>
+        /// <response code="400">Login failed (bad request)</response>
+        /// <response code="401">Login failed (unautorized)</response>
         [HttpPost("Login")]
         [ResponseCache(CacheProfileName = "NoCache")]
+        [ProducesResponseType(typeof(string), 201)]
+        [ProducesResponseType(typeof(BadRequestObjectResult), 400)]
+        [ProducesResponseType(typeof(ProblemDetails), 401)]
         public async Task<IActionResult> Login(LoginDTO input)
         {
             try

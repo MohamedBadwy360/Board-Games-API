@@ -8,7 +8,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace BoardGamesAPI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = RoleNames.Administrator)]
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Route("[controller]")]
     [ApiController]
     public class SeedController : ControllerBase

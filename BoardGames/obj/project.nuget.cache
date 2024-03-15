@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CPvi7H9sRUb2wiCz8Gxu4ZkF9AjYdZ7z9wY5ah046V1MkgCfbJWorhhEADIBiKeLT6GLcrBlkYbd9fOilLz8Vw==",
+  "dgSpecHash": "U8uOI9T7Yl1XmubXfpv6fs+dV9wrWDYsSiLgOw+kKbjGL100mTaI/RL+Wu0EGHcxoxRz8ZuAELDylTypRbhDig==",
   "success": true,
   "projectFilePath": "F:\\ME\\Study\\Software Engineering\\Projects\\BoardGamesAPI\\BoardGames\\BoardGamesAPI.csproj",
   "expectedPackageFiles": [
@@ -67,6 +67,7 @@
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\serilog.sinks.mssqlserver\\6.6.0\\serilog.sinks.mssqlserver.6.6.0.nupkg.sha512",
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\serilog.sinks.periodicbatching\\3.1.0\\serilog.sinks.periodicbatching.3.1.0.nupkg.sha512",
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\swashbuckle.aspnetcore.annotations\\6.4.0\\swashbuckle.aspnetcore.annotations.6.4.0.nupkg.sha512",
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "C:\\Users\\Mohamed Badwy\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.5.0\\swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",

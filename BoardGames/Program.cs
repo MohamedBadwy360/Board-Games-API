@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using System.Reflection;
+using Swashbuckle.AspNetCore.Annotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,11 @@ builder.Services.AddControllers(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.EnableAnnotations();
+
+    var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    options.IncludeXmlComments(System.IO.Path.Combine(AppContext.BaseDirectory, xmlFileName));
+
     options.ParameterFilter<SortColumnFilter>();
     options.ParameterFilter<SortOrderFilter>();
 
@@ -38,20 +45,24 @@ builder.Services.AddSwaggerGen(options =>
         BearerFormat = "JWT"
     });
 
-    options.AddSecurityRequirement(new OpenApiSecurityRequirement
-    {
-        {
-            new OpenApiSecurityScheme
-            {
-                Reference = new OpenApiReference
-                {
-                    Id = "Bearer",
-                    Type = ReferenceType.SecurityScheme
-                }
-            },
-            Array.Empty<string>()
-        }
-    });
+    //options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    //{
+    //    {
+    //        new OpenApiSecurityScheme
+    //        {
+    //            Reference = new OpenApiReference
+    //            {
+    //                Id = "Bearer",
+    //                Type = ReferenceType.SecurityScheme
+    //            }
+    //        },
+    //        Array.Empty<string>()
+    //}
+    //});
+
+    options.OperationFilter<AuthRequirementFilter>();
+    options.DocumentFilter<CustomDocumentFilter>();
+    options.RequestBodyFilter<PasswordRequestFilter>();
 });
 builder.Services.AddCors(options =>
 {
@@ -177,6 +188,11 @@ app.Use((context, next) =>
 //    Results.Problem());
 ////    .RequireCors("AnyOrigin");
 app.MapGet("/auth/test/1",
+    [SwaggerOperation(Tags = new[] { "Auth" }, 
+        Summary = "Auth test #1 (authenticated users).", 
+        Description = "Returns 200 - OK if called by " + "an authenticated user regardless of its role(s).")]
+    [SwaggerResponse(StatusCodes.Status200OK, "Authorized")]
+    [SwaggerResponse(StatusCodes.Status401Unauthorized, "Unauthorized")]
     [Authorize]
     [EnableCors("AnyOrigin")]
     [ResponseCache(NoStore = true)] () =>
@@ -185,6 +201,9 @@ app.MapGet("/auth/test/1",
     });
 
 app.MapGet("/auth/test/2",
+    [SwaggerOperation(Tags = new[] { "Auth" },
+        Summary = "Auth test #2 (Moderator role).",
+        Description = "Returns 200 - OK if called by an authenticated user regardless of Moderator role")]
     [Authorize(Roles = RoleNames.Moderator)]
     [EnableCors("AnyOrigin")]
     [ResponseCache(NoStore = true)] () =>
@@ -193,6 +212,9 @@ app.MapGet("/auth/test/2",
     });
 
 app.MapGet("/auth/test/3",
+    [SwaggerOperation(Tags = new[] { "Auth" },
+        Summary = "Auth test #3 (Administrator role).",
+        Description = "Returns 200 - OK if called by an authenticated user regardless of Administrator role.")]
     [Authorize(Roles = RoleNames.Administrator)]
     [EnableCors("AnyOrigin")]
     [ResponseCache(NoStore = true)] () =>

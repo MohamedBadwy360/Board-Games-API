@@ -7,6 +7,7 @@ using System.Linq.Dynamic.Core;
 using BoardGamesAPI.Attributes;
 using System.Reflection.Metadata;
 using Microsoft.Extensions.Caching.Memory;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace BoardGames.Controllers
 {
@@ -23,9 +24,15 @@ namespace BoardGames.Controllers
             _context = context;
         }
 
+
+        [SwaggerOperation(Summary = "Get a list of boardgames.", Description = "Retrieve a list of board games" +
+            "with custom paging, sorting, and filtering techniques.")]
         [HttpGet(Name = "GetBoardGames")]
         [ResponseCache(CacheProfileName = "Any-60")]
-        public async Task<RestDTO<BoardGame[]>> Get([FromQuery] RequestDTO<BoardGameDTO> input)
+        public async Task<RestDTO<BoardGame[]>> Get(
+            [FromQuery] 
+            [SwaggerParameter("A DTO object that can be used to customize the data retrieval parameter")]
+            RequestDTO<BoardGameDTO> input)
         {
             _logger.LogInformation(CustomLogEvents.BoardGamesController_Get, "Get Method Starts.");
 
@@ -58,6 +65,9 @@ namespace BoardGames.Controllers
         }
 
 
+
+
+        [SwaggerOperation(Summary = "Updates a board game.", Description = "Updates the board game's data.")]
         [Authorize(Roles = RoleNames.Moderator)]
         [HttpPut(Name = "UpdateBoardGame")]
         [ResponseCache(NoStore = true)]
@@ -91,6 +101,10 @@ namespace BoardGames.Controllers
         }
 
 
+
+
+
+        [SwaggerOperation(Summary = "Delete a board game", Description = "Delete a board game from the database.")]
         [Authorize(Roles = RoleNames.Administrator)]
         [HttpDelete(Name = "DeleteBoardGame")]
         [ResponseCache(NoStore = true)]

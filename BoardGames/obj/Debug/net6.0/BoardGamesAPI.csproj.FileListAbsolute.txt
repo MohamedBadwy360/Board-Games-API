@@ -96,3 +96,6 @@ F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\Microsoft.Extensions.Caching.SqlServer.dll
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
 F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\BoardGamesAPI.xml
+F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\obj\Debug\net6.0\BoardGamesAPI.xml
+F:\ME\Study\Software Engineering\Projects\BoardGamesAPI\BoardGames\bin\Debug\net6.0\Swashbuckle.AspNetCore.Annotations.dll
