@@ -6,7 +6,7 @@ This is a `REST API` implementing `CRUD` operations for `Board Games` to feed a 
 
 I used `ASP.NET Core`, `SQL Server` and `Entity Framework`.
 
-I used the `Database-First Approach` to create a database and models to represent the database schema in C#.
+I applied the `Code-First Approach` to create a database and models to represent the database schema in C#.
 
 The dataset is from Kaggle, an online community of data scientists that hosts several publicly accessible data sets for education and training purposes.
 
